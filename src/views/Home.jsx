@@ -38,11 +38,12 @@ export const Home = () => {
   return (
     <>
       <section className='mx-8'>
-      <h4 className='font-bold text-2xl text-black'>Welcome {payload.name ?? ""}</h4>
+
+      {payload !== null ? <h4 className='font-bold text-2xl text-black'>Welcome {payload?.name ?? ""}</h4> : <></> }
 
         <div className="flex items-center justify-between my-6">
           <h4 data-testid="title" className='font-semibold text-2xl text-black'>Users</h4>
-        <h4 className='font-semibold text-xl text-green-600'>{payload.email ?? ""}</h4>
+          {payload !== null ? <h4 className='font-semibold text-xl text-green-600'>{payload?.email}</h4>  : <></> }
 
 
         </div>
