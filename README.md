@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# SIL Frontend Engineer Assessment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## A Frontend app built using React and Tailwind
 
-## Available Scripts
+- Steps
 
-In the project directory, you can run:
+- Run __npm install__ to install dependencies
 
-### `npm start`
+- Run __npm start__ to serve application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Run __npm test__ to test the application
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3rd party packages that I included are
+moment, axios, react-router-dom, @react-oauth/google, tailwindcss and babel-jest
 
-### `npm test`
+## Pages
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+/ - Landing Page, displays a brief explanation of what the application does, a login with google button for unauthenticated users and a link to the dashboard for authenticated users.
 
-### `npm run build`
+/dashboard - Home Page, displays a list of users, their information and their respective total albums
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+/user/:user_id = User page, displays a user's information and her/his respective albums (Limited to first 5)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+/album/:album_id = Album page, displays an album's name and a list of some of it's photos (Limited to first 7)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+/photo/:photo_id = Photo page, displays a photo, it's name and an edit title feature.
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Google Authenticator - allows users to login to the application with their google accounts, using the @react-oauth/google a user clicks the sign In with google button, a pop up window appears and upon successful login, a jwt token is generated
+- Node API Backend - verifies the jwt token, decodes it and creates a new jwt token that is returned to the frontend application where the token is stored in the local storage.
+- Authenticated routes/views - Unauthenticated users are only permitted to access the Landing page and login. Authenticated users can view all pages, can logout but can't login again.
+- Logout button - allows users to log out, where token is removed from the local storage.
+- Unit tests - tests built using jest that verify the validity of each page and if data is displayed as expected.
+- A Github actions pipeline job that automatically runs the unit tests when a new Pull request is created.
+- A Github actions pipeline job that deploys to vercel and creates a preview of the frontend application when a new Pull request is created.
+- A Github actions pipeline job that deploys the main branch to vercel when a Pull request is merged.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Submitted by Victor Gichui Nyangi

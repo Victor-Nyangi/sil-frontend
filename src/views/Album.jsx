@@ -42,56 +42,56 @@ export const Album = () => {
         <div className="overflow-hidden overflow-x-auto border border-gray-100 rounded">
           {
             photos.length === 0 ? <Spinner /> :
-          <table className="min-w-full text-sm divide-y divide-gray-200">
-            <thead>
-              <tr className="bg-gray-50">
-                <th className="sticky left-0 px-4 py-2 text-left bg-gray-50">
-                  Id
-                </th>
-                <th className="px-4 py-2 font-medium text-left text-gray-900">
-                  Title
-                </th>
-                <th className="px-4 py-2 font-medium text-left text-gray-900">
-                  Url
-                </th>
-                <th className="px-4 py-2 font-medium text-left text-gray-900">
-                  Thumbnail
-                </th>
-                <th className="px-4 py-2 font-medium text-left text-gray-900">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-100">
-              {photos &&
-                photos.map((photo, index) => (
-                  <tr key={index} data-testid='photo'>
-                    <td className="px-4 py-2 font-medium text-gray-900">
-                      {photo.id}
-                    </td>
-                    <td className="px-4 py-2 font-medium text-gray-900">
-                      {photo?.title}
-                    </td>
-                    <td className="px-4 py-2 font-medium text-gray-900">
-                      {photo?.url}
-                    </td>
-                    <td className="px-4 py-2 text-gray-700">
-                      {photo?.thumbnailUrl}
-                    </td>
-                    <td className="px-4 py-2 text-gray-700">
-                      <Link
-                        className="my-6 text-xs"
-                        to={`/photo/${photo.id}`}
-                      >
-                        <button className="bg-green-700 p-2 font-bold text-white border rounded hover:bg-black">
-                          View
-                        </button>
-                      </Link>
-                    </td>
+              <table className="min-w-full text-sm divide-y divide-gray-200">
+                <thead>
+                  <tr className="bg-gray-50">
+                    <th className="sticky left-0 px-4 py-2 text-left bg-gray-50">
+                      Id
+                    </th>
+                    <th className="px-4 py-2 font-medium text-left text-gray-900">
+                      Title
+                    </th>
+                    <th className="px-4 py-2 font-medium text-left text-gray-900">
+                      Url
+                    </th>
+                    <th className="px-4 py-2 font-medium text-left text-gray-900">
+                      Thumbnail
+                    </th>
+                    <th className="px-4 py-2 font-medium text-left text-gray-900">
+                      Actions
+                    </th>
                   </tr>
-                ))}
-            </tbody>
-          </table>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {photos &&
+                    photos.map((photo, index) => (
+                      <tr key={index} data-testid='photo'>
+                        <td className="px-4 py-2 font-medium text-gray-900">
+                          {photo.id}
+                        </td>
+                        <td className="px-4 py-2 font-medium text-gray-900">
+                          {photo?.title}
+                        </td>
+                        <td className="px-4 py-2 font-medium text-gray-900">
+                          {photo?.url}
+                        </td>
+                        <td className="px-4 py-2 text-gray-700">
+                          {photo?.thumbnailUrl}
+                        </td>
+                        <td className="px-4 py-2 text-gray-700">
+                          <Link
+                            className="my-6 text-xs"
+                            to={`/photo/${photo.id}`}
+                          >
+                            <button className="bg-green-700 p-2 font-bold text-white border rounded hover:bg-black">
+                              View
+                            </button>
+                          </Link>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
           }
         </div>
       </section>
