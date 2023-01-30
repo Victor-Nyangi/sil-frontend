@@ -3,12 +3,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import login from "../assets/login.jpg"
 import { GoogleLogin } from '@react-oauth/google';
 import axios from 'axios'
+import { useState } from 'react';
+import { Spinner } from '../components';
 
 export const Landing = () => {
     const payload = JSON.parse(localStorage.getItem('payload'))
+    const [isLoading, setLoading] = useState(false)
     const navigate = useNavigate()
 
     const saveToken = async (credentialResponse) => {
+        setLoading(true)
         const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/verify`,
             {
                 client_id: credentialResponse.clientId,
@@ -17,6 +21,7 @@ export const Landing = () => {
 
         if (response.data) {
             localStorage.setItem('payload', JSON.stringify(response.data))
+            setLoading(false)
             navigate("/dashboard");
         }
 
@@ -25,6 +30,8 @@ export const Landing = () => {
 
     return (
         <>
+        {
+            isLoading ? <Spinner /> :
             <div className="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center sm:pt-0">
                 <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
                     <section className="bg-white dark:bg-gray-900">
@@ -62,6 +69,7 @@ export const Landing = () => {
                     </section>
                 </div>
             </div>
+        }
         </>
     )
 }

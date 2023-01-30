@@ -14,14 +14,14 @@ export const Photo = () => {
 
   useEffect(() => {
     const getPhoto = async () => {
-      if(process.env.REACT_APP_BASE_URL) {
+      if (process.env.REACT_APP_BASE_URL) {
         const photoData = await fetchPhoto(photo_id)
         setPhoto(photoData)
         setTitle(photoData.title)
       }
     }
     getPhoto()
-    return () => {setStatus('')}
+    return () => { setStatus('') }
   }, [photo_id])
 
   // Fetch Album
@@ -58,7 +58,7 @@ export const Photo = () => {
                 >
                   <div className="flex space-x-4">
                     <input
-                    data-testid="search"
+                      data-testid="search"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                       type="text"
                       id="title"

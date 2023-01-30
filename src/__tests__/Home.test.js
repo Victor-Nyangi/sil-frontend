@@ -60,7 +60,7 @@ describe('The Home page', () => {
         axios.get.mockResolvedValue({ data: dummyUsers });
         render(<GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
             <Home />
-        </GoogleOAuthProvider>, { wrapper: BrowserRouter }); // Test if the page renders accurately before any API calls or selections are made
+        </GoogleOAuthProvider>, { wrapper: BrowserRouter }); 
 
         const userList = await waitFor(() => screen.findAllByTestId("user"));
         const linkElement = screen.getByText(/Users/i);

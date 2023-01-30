@@ -35,7 +35,7 @@ describe('The User page', () => {
         axios.get.mockResolvedValue({ data: dummyAlbums });
         render(<GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
             <User />
-        </GoogleOAuthProvider>, { wrapper: BrowserRouter }); // Test if the page renders accurately before any API calls or selections are made
+        </GoogleOAuthProvider>, { wrapper: BrowserRouter });
 
         const albumList = await waitFor(() => screen.findAllByTestId("album"));
 

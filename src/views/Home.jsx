@@ -14,11 +14,11 @@ export const Home = () => {
     return res.data
   }
 
-    // Fetch Albums
-    const fetchAlbums = async () => {
-      const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/albums`)
-      return res.data
-    }
+  // Fetch Albums
+  const fetchAlbums = async () => {
+    const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/albums`)
+    return res.data
+  }
 
   useEffect(() => {
     const getUsers = async () => {
@@ -28,7 +28,7 @@ export const Home = () => {
       // Map total albums to each respective user
       const usersData = usersFromServer.map((user) => {
         let albums = albumsFromServer.filter((album) => album.userId === user.id)
-        return {...user, albums: albums.length}
+        return { ...user, albums: albums.length }
       })
       setUsers(usersData)
     }
@@ -39,11 +39,11 @@ export const Home = () => {
     <>
       <section className='mx-8'>
 
-      {payload !== null ? <h4 className='font-bold text-2xl text-black'>Welcome {payload?.name ?? ""}</h4> : <></> }
+        {payload !== null ? <h4 className='font-bold text-2xl text-black'>Welcome {payload?.name ?? ""}</h4> : <></>}
 
         <div className="flex items-center justify-between my-6">
           <h4 data-testid="title" className='font-semibold text-2xl text-black'>Users</h4>
-          {payload !== null ? <h4 className='font-semibold text-xl text-green-600'>{payload?.email}</h4>  : <></> }
+          {payload !== null ? <h4 className='font-semibold text-xl text-green-600'>{payload?.email}</h4> : <></>}
 
 
         </div>
@@ -102,7 +102,7 @@ export const Home = () => {
                           {user?.website}
                         </td>
                         <td className="px-4 py-2 text-gray-700 text-center">
-                        {user?.albums}
+                          {user?.albums}
                         </td>
                         <td className="px-4 py-2 text-gray-700">
                           <Link

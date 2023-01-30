@@ -19,7 +19,7 @@ export const Header = () => {
                     <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                         <Link to="/" className="flex items-center">
                             <img src={Logo} className="mr-3 h-6 sm:h-9" alt="Tech Jobs" />
-                            <span className="self-center text-xl font-semibold whitespace-nowrap">PicSavanaah</span>
+                            <span className="self-center text-xl font-semibold whitespace-nowrap">PicSavannah</span>
                         </Link>
                         {
                             payload?.token ?
