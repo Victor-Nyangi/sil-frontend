@@ -6,7 +6,7 @@ import { Spinner } from '../components'
 
 export const Photo = () => {
 
-  const [photo, setPhoto] = useState({})
+  const [photo, setPhoto] = useState(null)
   const [status, setStatus] = useState('')
   const [new_title, setTitle] = useState('')
   const params = useParams();
@@ -14,9 +14,11 @@ export const Photo = () => {
 
   useEffect(() => {
     const getPhoto = async () => {
-      const photoData = await fetchPhoto(photo_id)
-      setPhoto(photoData)
-      setTitle(photoData.title)
+      if(process.env.REACT_APP_BASE_URL) {
+        const photoData = await fetchPhoto(photo_id)
+        setPhoto(photoData)
+        setTitle(photoData.title)
+      }
     }
     getPhoto()
     return () => {setStatus('')}
