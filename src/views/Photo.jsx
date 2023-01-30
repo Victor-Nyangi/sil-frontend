@@ -1,5 +1,5 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { Alert } from '../components'
 import { Spinner } from '../components'
@@ -46,7 +46,7 @@ export const Photo = () => {
               <div className="flex flex-col justify-center md:pr-8 xl:pr-0 lg:max-w-lg">
                 <div className="max-w-xl mb-6">
                   <p className="text-base text-gray-700 md:text-lg">
-                    Title: <span className='font-semibold'>{photo?.title}
+                    Title: <span data-testid="phototitle" className='font-semibold'>{photo?.title}
                     </span>
                   </p>
                 </div>
@@ -56,6 +56,7 @@ export const Photo = () => {
                 >
                   <div className="flex space-x-4">
                     <input
+                    data-testid="search"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                       type="text"
                       id="title"

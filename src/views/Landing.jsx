@@ -30,7 +30,7 @@ export const Landing = () => {
                     <section className="bg-white dark:bg-gray-900">
                         <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                             <div className="mr-auto place-self-center lg:col-span-7">
-                                <h1 className="max-w-2xl mb-4 text-3xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Savannah and a picture Galore</h1>
+                                <h1 className="max-w-2xl mb-4 text-3xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white" data-testid="title">Savannah and a picture Galore</h1>
                                 <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">A simple portal that enlists some users, their albums and photos. With Google authentication, a simple and intuititve design and REST api calls.</p>
                                 {payload?.token ? (
 
@@ -43,7 +43,7 @@ export const Landing = () => {
                                             <GoogleLogin
                                                 theme="filled_blue"
                                                 shape="circle"
-
+                                                data-testid="loginbutton"
                                                 onSuccess={credentialResponse => {
                                                     saveToken(credentialResponse)
                                                 }}

@@ -1,5 +1,5 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { Spinner } from '../components'
@@ -65,7 +65,7 @@ export const Album = () => {
             <tbody className="divide-y divide-gray-100">
               {photos &&
                 photos.map((photo, index) => (
-                  <tr key={index}>
+                  <tr key={index} data-testid='photo'>
                     <td className="px-4 py-2 font-medium text-gray-900">
                       {photo.id}
                     </td>
