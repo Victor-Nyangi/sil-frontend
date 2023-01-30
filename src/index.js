@@ -5,7 +5,6 @@ import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 
-// Bringing in the GoogleOAuthProvider from the package
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

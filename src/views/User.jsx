@@ -1,5 +1,5 @@
-import axios from 'axios'
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Spinner } from '../components'
@@ -69,7 +69,7 @@ export const User = () => {
       <section className='mx-20'>
 
         <div className="flex items-center justify-between my-6">
-          <h4 className='font-semibold text-2xl text-black'>Albums</h4>
+          <h4 className='font-semibold text-2xl text-black' data-testid="title">Albums</h4>
 
         </div>
         <div className="overflow-hidden overflow-x-auto border border-gray-100 rounded">
@@ -93,10 +93,10 @@ export const User = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100">
+                <tbody className="divide-y divide-gray-100" >
                   {albums &&
                     albums.map((album, index) => (
-                      <tr key={index}>
+                      <tr key={index} data-testid="album">
                         <td className="px-4 py-2 font-medium text-gray-900">
                           {album.id}
                         </td>

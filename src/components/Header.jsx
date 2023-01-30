@@ -3,14 +3,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../assets/logo.svg'
 
 export const Header = () => {
-    const payload = JSON.parse(localStorage.getItem('payload'))
+    const payload =  JSON.parse(localStorage.getItem('payload'))
     const navigate = useNavigate()
 
-    // Logout user
-    const logout = () => {
-        localStorage.removeItem('payload')
-        navigate("/");
-    }
+        // Logout user
+        const logout = () => {
+            localStorage.removeItem('payload')
+            navigate("/");
+          }
 
     return (
         <>
@@ -23,15 +23,15 @@ export const Header = () => {
                         </Link>
                         {
                             payload?.token ?
-                                <div className='flex space-x-4 items-center'>
+                        <div className='flex space-x-4 items-center'>
 
-                                    <Link to="/dashboard" className="block text-lg font-medium text-center text-green-700 hover:text-green-900 font-bold">
-                                        Dashboard
-                                    </Link>
-                                    <button onClick={logout} className="text-lg font-medium text-center text-white bg-black rounded p-2 hover:bg-gray-600 font-bold">
-                                        Logout
-                                    </button>
-                                </div> : <></>
+                        <Link to="/dashboard" className="block text-lg font-medium text-center text-green-700 hover:text-green-900 font-bold">
+                            Dashboard
+                        </Link>
+                        <button onClick={logout} className="text-lg font-medium text-center text-white bg-black rounded p-2 hover:bg-gray-600 font-bold">
+                            Logout
+                        </button>
+                        </div> : <></>
                         }
                     </div>
                 </nav>
